@@ -698,7 +698,7 @@ updatepanel(){
 confirmupdatepanel(){
     cd /var/www/pterodactyl || exit || output "Pterodactyl Directory (/var/www/pterodactyl) does not exist." || exit
     php artisan down || exit || output "WARNING! The script ran into an error and stopped the script for security. The script is not responsible for any damage." || exit
-    curl -L https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz | tar -xzv || exit || output "WARNING! The script ran into an error and stopped the script for security. The script is not responsible for any damage." || exit
+    curl -L https://github.com/pterodactyl/panel/releases/download/v1.7.0/panel.tar.gz | tar -xzv || exit || output "WARNING! The script ran into an error and stopped the script for security. The script is not responsible for any damage." || exit
     chmod -R 755 storage/* bootstrap/cache || exit || output "WARNING! The script ran into an error and stopped the script for security. The script is not responsible for any damage." || exit
     composer install --no-dev --optimize-autoloader -n || exit || output "WARNING! The script ran into an error and stopped the script for security. The script is not responsible for any damage." || exit
     php artisan view:clear || exit || output "WARNING! The script ran into an error and stopped the script for security. The script is not responsible for any damage." || exit
@@ -736,7 +736,7 @@ updateboth(){
     fi
     cd /var/www/pterodactyl || exit || warning "Pterodactyl Directory (/var/www/pterodactyl) does not exist!"
     php artisan down
-    curl -L https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz | tar -xzv
+    curl -L https://github.com/pterodactyl/panel/releases/download/v1.7.0/panel.tar.gz | tar -xzv
     chmod -R 755 storage/* bootstrap/cache
     composer install --no-dev --optimize-autoloader -n
     chown -R www-data:www-data /var/www/pterodactyl/*
